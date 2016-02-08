@@ -1,24 +1,98 @@
-﻿<!DOCTYPE html>
-<html>
+﻿@{
+    ViewBag.Empresa = "Carlos ALMG";
+    ViewBag.Area = "Projeto Demonstração";
+    ViewBag.Aplicacao = "Aplicação Modelo";
+    ViewBag.Versao = "2016/02 - 1.0";
+    ViewBag.Title = "Aplicação Modelo - Carlos A.L.M.Guimarães";
+}
+
+
+<!DOCTYPE html>
+<html data-ng-app="AppAplicacaoModelo">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-</head>
-<body>
-    <div class="container body-content">
-        @RenderBody()
-
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Carlos A.L.M. Guimarães - Modelo Aplicação</p>
-        </footer>
-    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/Scripts/angular")
+
+
+</head>
+<body data-ng-controller="MainCtr as mainCtr" >
+    <div id="wrap" >
+        <!-- Fixed navbar -->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">@ViewBag.Empresa</a>
+                    <a class="navbar-brand" href="#">-</a>
+                    <a class="navbar-brand" href="#">@ViewBag.Aplicacao</a>
+                </div>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ações<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#Op1">Opção 01</a></li>
+                                <li><a href="#Op2">Opção 02</a></li>
+                                <li><a href="#Op3">Opção 03</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header"></li>
+                                <li><a href="#">Sair</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+
+        <indicador-carregando></indicador-carregando>   
+
+        <!-- TODO CRIAR DIRETIVA -->
+        <div class="alert alert-danger " role="alert" style="margin-right:15%; margin-left:15%;"  data-ng-show="mainCtr.isShowMsg"  data-ng-cloak>
+            <button type="button" class="close"  aria-label="Fechar" data-ng-click="mainCtr.fechar()"><span aria-hidden="true">&times;</span></button>
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <strong>Erro:</strong>
+            <ul data-ng-repeat="item in mainCtr.listaMsg" >
+                <li>{{item}}</li>
+            </ul>
+        </div>
+
+        <div data-ng-view>
+            @RenderBody()
+        </div>
+
+
+
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            <p class="text-muted credit">
+                @ViewBag.Empresa - @ViewBag.Area - @ViewBag.Aplicacao - Versão @ViewBag.Versao
+            </p>
+        </div>
+    </div>
+
+       
+        @{ var versao = DateTime.Now.Ticks.ToString(); }    
+    
+        <script src="/app/appAplicacaoModelo.js?v=@versao>" type="text/javascript"></script>
+        <script src="/app/directive/indicadorCarregando.js?v=@versao" type="text/javascript"></script>
+ 
+         <script src="/app/controller/mainCtr.js?v=@versao" type="text/javascript"></script>
+
+        @RenderSection("scripts", required: false)
 </body>
 </html>
