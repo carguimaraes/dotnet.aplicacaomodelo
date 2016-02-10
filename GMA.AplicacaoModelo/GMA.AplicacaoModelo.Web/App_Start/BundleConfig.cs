@@ -19,6 +19,7 @@ namespace GMA.AplicacaoModelo.Web
             bundles.Add(new ScriptBundle("~/bundles/jquery")
                         .Include("~/Scripts/jquery-{version}.js")
                          .Include("~/Scripts/jquery.validate*")
+                         .Include("~/Scripts/jquery-ui-1.10.0.min.js")
                        );
  
 
@@ -40,7 +41,21 @@ namespace GMA.AplicacaoModelo.Web
                         .Include("~/Content/bootstrap.css")
                         .Include("~/Content/site.css")
                         .Include("~/Content/bootstrap-responsive.css")
+                        .Include("~/Content/ui.jqgrid-bootstrap-ui.css")
+                        .Include("~/Content/ui.jqgrid-bootstrap.css")
+                        .Include("~/Content/ui.jqgrid.css")
+                        
                         );
+
+            bundles.Add(new ScriptBundle("~/Scripts/componentesExternos")
+                         .Include("~/Scripts/i18n/grid.locale-pt-br.js")
+                         .Include("~/Scripts/jquery.jqGrid.min.js")
+                       );                  
+
+
+           
+
+
         }
     }
 }

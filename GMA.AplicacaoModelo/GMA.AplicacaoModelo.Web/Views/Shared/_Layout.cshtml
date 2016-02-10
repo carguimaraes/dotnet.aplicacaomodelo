@@ -18,8 +18,11 @@
     @Scripts.Render("~/bundles/modernizr")
 
     @Scripts.Render("~/bundles/jquery")
+   
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Scripts/angular")
+    @Scripts.Render("~/Scripts/componentesExternos")
+
 
 
 </head>
@@ -92,6 +95,11 @@
         <script src="/app/directive/indicadorCarregando.js?v=@versao" type="text/javascript"></script>
  
          <script src="/app/controller/mainCtr.js?v=@versao" type="text/javascript"></script>
+         <script src="/app/controller/Ctr01.js?v=@versao" type="text/javascript"></script>
+         <script src="/app/controller/Ctr02.js?v=@versao" type="text/javascript"></script>
+         <script src="/app/controller/Ctr03.js?v=@versao" type="text/javascript"></script>
+
+         
 
         @RenderSection("scripts", required: false)
 </body>

@@ -11,6 +11,7 @@ namespace GMA.AplicacaoModelo.Web.Controllers
     public class SolicitacaoController : ApiController
     {
 
+     //TODO so teste!!!
      [Route("api/v1/solicitacoes")]
      [HttpGet]
      public string[] ObterListaSolicitacao()
