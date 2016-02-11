@@ -5,11 +5,20 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Routing;
+using GMA.AplicacaoModelo.Dominio.Repositorios;
+using GMA.AplicacaoModelo.Web.Models;
 
 namespace GMA.AplicacaoModelo.Web.Controllers
 {
     public class SolicitacaoController : ApiController
     {
+     private ISolicitacaoReposotorio _solicitacaoReposotorio;
+
+
+     public SolicitacaoController(ISolicitacaoReposotorio solicitacaoReposotorio)
+     {
+      _solicitacaoReposotorio = solicitacaoReposotorio;
+     }
 
      //TODO so teste!!!
      [Route("api/v1/solicitacoes")]
@@ -17,7 +26,9 @@ namespace GMA.AplicacaoModelo.Web.Controllers
      public string[] ObterListaSolicitacao()
      {
 
-      return new string[] { "nome 01", "nome 02", "nome 03" };
+
+
+      return _solicitacaoReposotorio.ObterListaSolicitacao();
      }
     }
 }
