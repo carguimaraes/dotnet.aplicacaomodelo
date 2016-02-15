@@ -8,7 +8,7 @@ using GMA.AplicacaoModelo.Dominio.Entidades;
 
 namespace GMA.AplicacaoModelo.Infra.Bd.Entity.Map
 {
- public class LojaEntityConfiguration : EntityTypeConfiguration<Loja>
+ internal class LojaEntityConfiguration : EntityTypeConfiguration<Loja>
  {
 
   public LojaEntityConfiguration()

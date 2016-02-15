@@ -9,7 +9,7 @@ using GMA.AplicacaoModelo.Infra.Bd.Entity.Map;
 
 namespace GMA.AplicacaoModelo.Infra.Db.Entity 
 {
- public class VendaContext :  DbContext
+ internal class VendaContext :  DbContext
  {
   public DbSet<Loja> Lojas { get; set; }
 

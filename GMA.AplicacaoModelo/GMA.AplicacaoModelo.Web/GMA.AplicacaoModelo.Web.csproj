@@ -968,7 +968,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\LojaViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicos\LojaServico.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -987,7 +989,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App\service\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GMA.AplicacaoModelo.Dominio\GMA.AplicacaoModelo.Dominio.csproj">

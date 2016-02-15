@@ -6,35 +6,50 @@ using System.Net.Http;
 using System.Web.Http;
 using GMA.AplicacaoModelo.Dominio.Entidades;
 using GMA.AplicacaoModelo.Dominio.Repositorios;
+using GMA.AplicacaoModelo.Web.Models;
+using GMA.AplicacaoModelo.Web.Servicos;
 
 namespace GMA.AplicacaoModelo.Web.Controllers
 {
     public class LojaController : ApiController
     {
 
-     private ILojaRepositorio _lojaRepositorio;
+     private LojaServico _lojaServico;
 
-     public LojaController(ILojaRepositorio  repo)
+
+
+     public LojaController(LojaServico lojaServico)
      {
-      _lojaRepositorio = repo;
+      _lojaServico = lojaServico;
      }
-
-
-
-     //TODO so teste!!!
+     
+     //TODO Fazer teste unitario
+     
      [Route("api/v1/lojas")]
      [HttpGet]
-     public string[] ObterListaSolicitacao()
+     public HttpResponseMessage  ObterListaLoja()
+     {
+       var ret=_lojaServico.ObterListaLoja();
+      
+       //TODO alterar para tratar erros
+       return Request.CreateResponse(HttpStatusCode.OK, ret);
+
+     }
+
+
+   
+     [Route("api/v1/lojas")]
+     [HttpPost]
+     public HttpResponseMessage NovaLoja([FromBody ]LojaViewModel lojaViewModel)
      {
 
-    
-      var loja = new Loja { Nome = "Teste GMA Loja01" };
-
-      _lojaRepositorio.Salvar(loja);
+      if (lojaViewModel == null) return Request.CreateResponse(HttpStatusCode.BadRequest, new String[] { "Valor Loja Invalido" });
 
 
-
-      return new string[] { "feito" };
+      _lojaServico.NovaLoja(lojaViewModel);
+      
+      return Request.CreateResponse(HttpStatusCode.OK);
      }
+     
     }
 }

@@ -7,7 +7,8 @@ namespace GMA.AplicacaoModelo.Web.App_Start
  using System.Web;
  using System.Web.Http;
  using GMA.AplicacaoModelo.Dominio.Repositorios;
- using GMA.AplicacaoModelo.Infra.Bd.Entity.RepositorioImpl;
+ using GMA.AplicacaoModelo.Infra;
+ using GMA.AplicacaoModelo.Web.Servicos;
  using Microsoft.Web.Infrastructure.DynamicModuleHelper;
  using Ninject;
  using Ninject.Web.Common;
@@ -63,7 +64,13 @@ namespace GMA.AplicacaoModelo.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-         kernel.Bind<ILojaRepositorio>().To<LojaRepositorio>();
+         //TODO melhorar
+         GMA.AplicacaoModelo.Infra.Map.SetMap(kernel);
+         //TODO retuirar deste modulo e padronizar MAPs
+         kernel.Bind<LojaServico>().ToSelf();
+        
+         //
+
         }        
     }
 }

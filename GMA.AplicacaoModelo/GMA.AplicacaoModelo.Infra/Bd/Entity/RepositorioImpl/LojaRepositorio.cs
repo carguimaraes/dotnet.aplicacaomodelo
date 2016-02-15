@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,13 +10,13 @@ using GMA.AplicacaoModelo.Infra.Db.Entity;
 
 namespace GMA.AplicacaoModelo.Infra.Bd.Entity.RepositorioImpl
 {
- public class LojaRepositorio :ILojaRepositorio
+ internal class LojaRepositorio :ILojaRepositorio
  {
   private VendaContext _context;
 
-  public LojaRepositorio()
+  public LojaRepositorio(VendaContext context)
   {
-   _context = new VendaContext();
+   _context = context;
   }
 
   public IEnumerable<Loja> ObterListaLoja()
