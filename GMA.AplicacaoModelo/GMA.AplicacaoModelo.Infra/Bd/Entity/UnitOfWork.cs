@@ -14,15 +14,15 @@ namespace GMA.AplicacaoModelo.Infra.Bd.Entity
  internal class UnitOfWork : IUnitOfWork 
  {
   private VendaContext _context;
-//  private IKernel _resolver;
+  private Resolver _resolver;
 
   private ILojaRepositorio _lojaRepositorio;
 
- // public UnitOfWork(IKernel kernel)
-  public UnitOfWork()
+  public UnitOfWork(Resolver resolver)
+  //public UnitOfWork()
   {
    _context = new VendaContext();
-  // _resolver = kernel;
+   _resolver = resolver;
   }
  
 
@@ -32,6 +32,7 @@ namespace GMA.AplicacaoModelo.Infra.Bd.Entity
   }
 
   
+  
 
   public ILojaRepositorio LojaRepositorio
   {
@@ -39,8 +40,9 @@ namespace GMA.AplicacaoModelo.Infra.Bd.Entity
    {
     if (this._lojaRepositorio == null)
     {
-     //new Ninject.Parameters.ConstructorArgument("_context",_context)
-     this._lojaRepositorio = new LojaRepositorio(_context);       // _resolver.Get<ILojaRepositorio>(new ConstructorArgument("_context", _context));
+    
+     this._lojaRepositorio = _resolver.Get<ILojaRepositorio>(new ConstructorArgument("context", _context));
+
     }
     return _lojaRepositorio;
    }

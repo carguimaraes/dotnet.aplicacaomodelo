@@ -64,12 +64,17 @@ namespace GMA.AplicacaoModelo.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-         //TODO melhorar
-         GMA.AplicacaoModelo.Infra.Map.SetMap(kernel);
-         //TODO retuirar deste modulo e padronizar MAPs
-         kernel.Bind<LojaServico>().ToSelf();
+
         
-         //
+
+         var listaModulo = new Ninject.Modules.INinjectModule[]
+                              {
+                                 new  GMA.AplicacaoModelo.Infra.InjectionModule(),
+                                 new  GMA.AplicacaoModelo.Web.InjectionModule(),
+                              };
+
+
+         kernel.Load(listaModulo);
 
         }        
     }

@@ -53,8 +53,9 @@
     <Compile Include="Bd\Entity\RepositorioImpl\LojaRepositorio.cs" />
     <Compile Include="Bd\Entity\UnitOfWork.cs" />
     <Compile Include="Bd\Entity\VendaContext.cs" />
-    <Compile Include="Map.cs" />
+    <Compile Include="InjectionModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GMA.AplicacaoModelo.Dominio\GMA.AplicacaoModelo.Dominio.csproj">
@@ -66,7 +67,9 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Bd\Nhibernate\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
