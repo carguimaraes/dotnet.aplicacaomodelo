@@ -23,7 +23,7 @@ namespace GMA.AplicacaoModelo.Web.Servicos
   public virtual List<LojaViewModel> ObterListaLoja()
   {
 
-   var lista=_uwk.LojaRepositorio.ObterListaLoja().ToList();
+   var lista=_uwk.Repositorio<ILojaRepositorio>().ObterListaLoja().ToList();
    var listaVwM= new  List<LojaViewModel>(); 
 
    foreach (var item in lista)
@@ -42,7 +42,7 @@ namespace GMA.AplicacaoModelo.Web.Servicos
    //TODO erros nao estao sendo tratado
    var loja = new Loja { Nome = lojaViewModel.Nome};
    
-   _uwk.LojaRepositorio.Salvar(loja);
+   _uwk.Repositorio<ILojaRepositorio>().Salvar(loja);
 
    
   }

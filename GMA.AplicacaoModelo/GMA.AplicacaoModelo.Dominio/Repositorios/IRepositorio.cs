@@ -6,14 +6,7 @@ using System.Threading.Tasks;
 
 namespace GMA.AplicacaoModelo.Dominio.Repositorios
 {
- public interface IUnitOfWork : IDisposable
+ public interface IRepositorio
  {
-
-  T Repositorio<T>() where T : IRepositorio;
-
-  void BeginTransaction();
-  void CommitTransaction();
-  void RollBackTransaction();
-
  }
 }

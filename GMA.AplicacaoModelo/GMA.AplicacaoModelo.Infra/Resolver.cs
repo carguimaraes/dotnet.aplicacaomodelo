@@ -21,7 +21,11 @@ namespace GMA.AplicacaoModelo.Infra
   //TODO Melhorar
   public T Get<T>(ConstructorArgument constructorArgument)
   {
-   return _resolver.Get<T>(constructorArgument);
+
+     
+
+        return _resolver.Get<T>(constructorArgument);
+
   }
   public T Get<T>()
   {

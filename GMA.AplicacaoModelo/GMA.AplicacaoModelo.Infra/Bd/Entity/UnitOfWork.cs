@@ -15,6 +15,8 @@ namespace GMA.AplicacaoModelo.Infra.Bd.Entity
  {
   private VendaContext _context;
   private Resolver _resolver;
+  private readonly  Dictionary<Type, object> _configuredServices = new Dictionary<Type, object>();
+
 
   private ILojaRepositorio _lojaRepositorio;
 
@@ -32,23 +34,22 @@ namespace GMA.AplicacaoModelo.Infra.Bd.Entity
   }
 
   
-  
-
-  public ILojaRepositorio LojaRepositorio
-  {
-   get 
-   {
-    if (this._lojaRepositorio == null)
-    {
+  public  T Repositorio<T>() where T : IRepositorio
+        {
     
-     this._lojaRepositorio = _resolver.Get<ILojaRepositorio>(new ConstructorArgument("context", _context));
+           object obj = null; 
+           if ( _configuredServices.ContainsKey(typeof(T)))
+           {
+                 obj = _configuredServices[typeof(T)];
+            }
+           else
+           {
+                obj = _configuredServices[typeof(T)] = _resolver.Get<ILojaRepositorio>(new ConstructorArgument("context", _context));
+           }
 
-    }
-    return _lojaRepositorio;
-   }
-  }
-
-
+            return (T) obj;
+        }
+    
 
   #region Contrle Transacao
 

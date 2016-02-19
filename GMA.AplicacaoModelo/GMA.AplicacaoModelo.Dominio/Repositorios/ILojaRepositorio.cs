@@ -7,7 +7,7 @@ using GMA.AplicacaoModelo.Dominio.Entidades;
 
 namespace GMA.AplicacaoModelo.Dominio.Repositorios
 {
-  public interface ILojaRepositorio
+ public interface ILojaRepositorio : IRepositorio
   {
 
    IEnumerable<Loja> ObterListaLoja();
