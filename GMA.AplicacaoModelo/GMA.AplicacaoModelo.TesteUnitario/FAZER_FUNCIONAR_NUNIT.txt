@@ -1,0 +1,7 @@
+﻿http://stackoverflow.com/questions/19298347/nunit-unit-tests-not-showing-in-test-explorer-with-test-adapter-is-installed
+
+
+http://jeremybytes.blogspot.com.br/2015/11/review-of-unit-testing-makes-me-faster.html
+
+
+http://stackoverflow.com/questions/17612984/visual-studio-test-explorer-window-will-not-open

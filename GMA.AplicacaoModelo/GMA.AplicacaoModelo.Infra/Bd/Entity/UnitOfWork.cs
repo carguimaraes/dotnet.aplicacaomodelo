@@ -13,6 +13,7 @@ namespace GMA.AplicacaoModelo.Infra.Bd.Entity
 {
  internal class UnitOfWork : IUnitOfWork 
  {
+  
   private VendaContext _context;
   private Resolver _resolver;
   private readonly  Dictionary<Type, object> _configuredServices = new Dictionary<Type, object>();
@@ -27,10 +28,17 @@ namespace GMA.AplicacaoModelo.Infra.Bd.Entity
    _resolver = resolver;
   }
  
-
+  //TODO imp Dispose(boolean)
   public void Dispose()
   {
-   _context.Dispose();
+   _configuredServices.Clear();
+//   if (_context != null)
+ //  {
+    _context.Dispose();
+    _context = null;
+  // }
+   GC.SuppressFinalize(this);
+  
   }
 
   

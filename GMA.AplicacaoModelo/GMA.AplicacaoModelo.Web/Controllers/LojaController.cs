@@ -29,6 +29,8 @@ namespace GMA.AplicacaoModelo.Web.Controllers
      [HttpGet]
      public HttpResponseMessage  ObterListaLoja()
      {
+
+      //TODO alterar para envelope
        var ret=_lojaServico.ObterListaLoja();
       
        //TODO alterar para tratar erros
@@ -50,6 +52,7 @@ namespace GMA.AplicacaoModelo.Web.Controllers
       
       return Request.CreateResponse(HttpStatusCode.OK);
      }
-     
+
+   
     }
 }

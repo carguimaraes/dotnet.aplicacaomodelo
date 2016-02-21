@@ -7,6 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMA.AplicacaoModelo.Dominio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMA.AplicacaoModelo.Infra", "GMA.AplicacaoModelo.Infra\GMA.AplicacaoModelo.Infra.csproj", "{4143E949-0212-43E1-BE04-24ACEAA7A99C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMA.AplicacaoModelo.TesteUnitario", "GMA.AplicacaoModelo.TesteUnitario\GMA.AplicacaoModelo.TesteUnitario.csproj", "{8040168A-7CD8-4363-BC73-C6E38CD309A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5F825AAE-4454-4B74-9DD1-4FFD8BA5EDDE}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +32,10 @@ Global
 		{4143E949-0212-43E1-BE04-24ACEAA7A99C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4143E949-0212-43E1-BE04-24ACEAA7A99C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4143E949-0212-43E1-BE04-24ACEAA7A99C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8040168A-7CD8-4363-BC73-C6E38CD309A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8040168A-7CD8-4363-BC73-C6E38CD309A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8040168A-7CD8-4363-BC73-C6E38CD309A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8040168A-7CD8-4363-BC73-C6E38CD309A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

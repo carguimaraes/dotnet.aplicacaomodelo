@@ -8,9 +8,11 @@ using GMA.AplicacaoModelo.Web.Models;
 
 namespace GMA.AplicacaoModelo.Web.Servicos
 {
- public class LojaServico
+ public class LojaServico : IDisposable
  {
   private IUnitOfWork _uwk;
+
+  public LojaServico() { }
 
   public LojaServico(IUnitOfWork uwk )
   {
@@ -22,7 +24,7 @@ namespace GMA.AplicacaoModelo.Web.Servicos
   //TODO fazer teste unitario
   public virtual List<LojaViewModel> ObterListaLoja()
   {
-
+   
    var lista=_uwk.Repositorio<ILojaRepositorio>().ObterListaLoja().ToList();
    var listaVwM= new  List<LojaViewModel>(); 
 
@@ -48,5 +50,16 @@ namespace GMA.AplicacaoModelo.Web.Servicos
   }
 
 
+
+  #region IDisposable Members
+
+  public void Dispose()
+  {
+   //TODO retirar ja foi liberado
+  // _uwk.Dispose();
+   GC.SuppressFinalize(this);
+  }
+
+  #endregion
  }
 }

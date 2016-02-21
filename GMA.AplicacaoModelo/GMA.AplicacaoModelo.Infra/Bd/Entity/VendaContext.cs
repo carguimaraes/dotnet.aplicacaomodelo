@@ -16,8 +16,7 @@ namespace GMA.AplicacaoModelo.Infra.Db.Entity
   public VendaContext(): base("CnxVenda")
   {
   }
-
-
+  
 
   protected override void OnModelCreating(DbModelBuilder modelBuilder)
   {
@@ -26,7 +25,7 @@ namespace GMA.AplicacaoModelo.Infra.Db.Entity
 
     modelBuilder.Configurations.Add(new LojaEntityConfiguration());
   
-
+   
   }
  }
 }
